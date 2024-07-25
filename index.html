@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>melody vista audio visualizer </title>
+  <link rel="stylesheet" type="text/css" href="estilos.css">
+  <link rel="shortcut icon"  href="fab.png" type="image/x-icon">
+
+
+
+
+  <style>
+
+
+    /* estilos */
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1e1e1e; /* Fondo oscuro */
+      color: #ffffff; /* Texto blanco */
+      overflow: hidden;
+    }
+
+
+
+
+
+    
+    /*ESTILOS imagen de introducción + intrucciones*/
+    #intro, #instructions {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      z-index: 10; 
+    }
+
+    #intro img, #instructions img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /*ajusta toda la imagen a la pantalla*/
+    }
+
+    #instructions {
+      display: none; /*oculta las instrucciones al inicio*/
+    }
+
+
+    /* estilos para SLIDERS */
+    .slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 4px; 
+      background: #888; /*color de fondo del slider*/
+      outline: none;
+      opacity: 0.7;
+      transition: opacity 0.15s ease-in-out;
+      border-radius: 2px; 
+    }
+
+    .slider:hover {
+      opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 15px; /*bolita slider*/
+      height: 15px; /* bolita slider */
+      background: lightgray; /*color bolita slider*/
+      cursor: pointer;/*se cambia la bolita por la manito*/
+      border-radius: 50%;
+    }
+
+  
+  
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+  <script src="index2.js"></script>
+
+  <!-- linkeo los visuals de js con el html -->
+  <script src="visualization1.js"></script>
+  <script src="visualization2.js"></script>
+  <script src="visualization3.js"></script>
+  <script src="visualization4.js"></script>
+  
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let introVisible = true;
+//cuando se presiona la tecla space se ejecuta el código
+
+
+      document.addEventListener('keydown', function(event) {
+        
+        if (event.code === 'Space') {
+           // Si introVisible es TRUE se oculta y se muestran las instrucciones
+
+           // Si introVisibl es FALSE se enseña Visualization1
+
+
+
+          if (introVisible) {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('instructions').style.display = 'flex';
+            introVisible = false;
+          } else {
+            document.getElementById('instructions').style.display = 'none';
+            startVisualization1(); //comienza la visualización 1
+          }
+        }
+      });
+    });
+
+
+
+
+
+    function startVisualization1() {
+      // Lógica para iniciar la visualización 1
+      console.log("Starting Visualization 1...");
+      customizeSliders(); // 
+    }
+
+
+
+    
+
+  </script>
+</head>
+<body>
+
+
+  <!-- aquí ubico mi GIF de la introducción -->
+  <div id="intro">
+    <img src="INTRO.gif" alt="Intro GIF">
+  </div>
+
+  <!-- aquí ubico mi png con las instrucciones-->
+  <div id="instructions">
+    <img src="instruccioness.png" alt="Instructions Image">
+  </div>
+
+  <!-- Div padre que contiene a los divs hijos, agrupa los elementos secundarios -->
+  <div id="main-container">
+
+
+    <!-- Div padre que contiene mové + el botón de cerrar -->
+    <div id="toolbar">
+      <div id="move-bar">Mové y arrastrá</div>
+      <button id="close-btn">X</button>
+    </div>
+
+    <!-- Div padre que contiene botones sliders y pickers -->
+    <div id="controls">
+      <div id="button-container" class="controls-container"></div>
+      <div id="slider-container" class="controls-container">
+      </div>
+      <div id="picker-container" class="controls-container"></div>
+    </div>
+  </div>
+
+
+
+  <!-- Div que contiene el selector de canciones -->
+  <div id="song-selector-container">
+    <label for="song-selector">selecciona una canción:</label>
+    
+    <!-- Div LISTA, cuando se despliega se llama a la función changeSong-->
+
+    
+    <select id="song-selector" onchange="changeSong()">
+      <option value="song1.mp3">Anyma - AfterLove</option>
+      <option value="song2.mp3">The Blaze- SHE </option>
+      <option value="song3.mp3">Rüfüs Du Sol- Next to me</option>
+      <option value="song4.mp3">Marsh - Me and You</option>
+      <option value="song5.mp3">CamelPhat - Breathe</option>
+      <option value="song6.mp3">Camelphat - For a Feeling</option>
+      <option value="song7.mp3">Claptone - The First Time Free</option>
+      <option value="song8.mp3">Bunt - Clouds</option>
+    </select>
+  </div>
+
+  <style>
+  </style>
+</body>
+</html>

@@ -1,0 +1,143 @@
+/* Estilos generales */
+body {
+  padding: 5px;
+  margin: 5px;
+  overflow: hidden;
+  font-family: 'montserrat', sans-serif;
+  background-color: #1e1e1e; /* Fondo oscuro */
+  color: #ffffff; /* Texto blanco */
+}
+
+/* Estilos para la sección principal */
+#main-container {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  padding: 20px;
+  margin: 20px; /* Más margen */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacio entre elementos */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 1px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  resize: both;
+  overflow: auto;
+}
+
+/* Estilos para la barra de herramientas */
+#toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  resize:horizontal
+  
+}
+
+/* Estilos para el botón de cerrar */
+#close-btn {
+  background-color: rgb(222, 85, 85);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+
+
+/* Estilos para los botones */
+.button {
+  width: 150px;
+  height: 40px;
+  font-family: 'montserrat', sans-serif;
+  background-color: #525252;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 15px;
+  font-weight:400
+}
+
+.button:hover {
+  background-color: #000000;
+  transform: translateY(-2px);
+}
+ 
+/* Estilos para los pickers */
+.picker {
+  width: 100%; /* Ancho completo del contenedor */
+  height: 40px;
+  margin-top: 20px; /* Más espacio arriba del picker */
+  margin-bottom: 10px; /* Más espacio abajo del picker */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos para el selector de canciones */
+#song-selector-container {
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+#song-selector {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border: 50x solid #888;
+  background-color: #000000;
+  color:  #ffffff;
+  font-size: 20px;
+  font-size: 400;
+  padding: 5px;
+}
+
+#song-selector option {
+  font-family: 'montserrat', sans-serif;
+  background-color: #000000;
+  color:   #bebebe;
+}
+
+
+/* Estilos para el toolbar */
+#toolbar {
+  display: flex;
+  flex-direction: column; /* Cambia la dirección a vertical */
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: grab; /* Cambia el cursor al tipo de agarre para indicar que se puede arrastrar */
+  user-select: none; /* Evita que se seleccione accidentalmente el texto */
+  resize: vertical; /* Permite redimensionar verticalmente */
+  overflow: hidden; /* Controla el desbordamiento del contenido */
+  min-height: 50px; /* Altura mínima para evitar redimensionamiento demasiado pequeño */
+  max-height: 300px; /* Altura máxima permitida para redimensionar */
+  width: 150px; /* Ancho inicial */
+}
+
+#toolbar .handle {
+  height: 10px; /* Altura del mango de redimensionamiento */
+  width: 100%; /* Ocupa todo el ancho */
+  cursor: ns-resize; /* Cambia el cursor al tipo de redimensionamiento vertical */
+}
+
+#toolbar .handle:hover {
+  background-color: #555;
+}
+
+#toolbar .content {
+  flex-grow: 1;
+}
